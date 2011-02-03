@@ -91,35 +91,35 @@
 # -------------------------------------------------------
 # 
 # 
-# class Song
-#   @@plays = 0
-#   def initialize(name, artist, duration)
-#     @name     = name
-#     @artist   = artist
-#     @duration = duration
-#     @plays    = 0
-#   end
-#   def to_s
-#     "Song: #{@name}, Artist: #{@artist}, Duration: #{@duration}"
-#   end
-#   
-#   attr_reader :name, :artist, :duration
-#   attr_writer :duration
-#   # def duration=(newDuration)
-#   #   @duration = newDuration
-#   # end
-#   def durationInMinutes
-#     @duration/60.0
-#   end
-#   def durationInMinutes=(value)
-#     @duration = (value*60).to_i
-#   end
-#   def play
-#     @plays += 1
-#     @@plays += 1
-#     "This song: #@plays plays. Total #@@plays plays."
-#   end
-# end
+class Song
+  @@plays = 0
+  def initialize(name, artist, duration)
+    @name     = name
+    @artist   = artist
+    @duration = duration
+    @plays    = 0
+  end
+  def to_s
+    "Song: #{@name}, Artist: #{@artist}, Duration: #{@duration}"
+  end
+  
+  attr_reader :name, :artist, :duration
+  attr_writer :duration
+  # def duration=(newDuration)
+  #   @duration = newDuration
+  # end
+  def durationInMinutes
+    @duration/60.0
+  end
+  def durationInMinutes=(value)
+    @duration = (value*60).to_i
+  end
+  def play
+    @plays += 1
+    @@plays += 1
+    "This song: #@plays plays. Total #@@plays plays."
+  end
+end
 # 
 # class KaraokeSong < Song
 #   def initialize(name, artist, duration, lyrics)
@@ -261,19 +261,70 @@
 # 
 # print a[3]
 
+class SongList
+  def initialize
+    @songs = Array.new
+  end
+  
+  attr_reader :songs
+  
+  def append(aSong)
+    @songs.push(aSong)
+    self
+  end
+  def deleteFirst
+    @songs.shift
+  end
+  def deleteLast
+    @songs.pop
+  end
+  def [](key)
+    return @songs[key] if key.kind_of?(Integer)
+    return @songs.find { |aSong| key == aSong.name}
+    # if key.kind_of?(Integer)
+    #       result = @songs[key]
+    #     else
+    #       result = @songs.find { |aSong| key == aSong.name }
+    #     end
+    #     return result
+  end
+end
 
 
+#list = SongList.new
 
+#list.
+#  append(Song.new('title1', 'artist1', 1)).
+#  append(Song.new('title2', 'artist2', 2)).
+#  append(Song.new('title3', 'artist3', 3)).
+#  append(Song.new('title4', 'artist4', 4))
+# 
+# puts list.deleteFirst
+# puts list.deleteFirst
+# puts list.deleteLast
+# puts list.deleteLast
+# puts list.deleteLast
+# puts list.songs
 
+# puts list[0]
 
+# file = File.open("file.txt")
+#file.each do |line|
+#    puts line
+#end
+#file.close
 
+#num = 2
+#10.times do
+#    print num, "\n"
+#    num *= num
+#end
 
-
-
-
-
-
-
+i = 8
+7.times do
+    print i.class, " ", i, "\n"
+    i *= i
+end
 
 
 
