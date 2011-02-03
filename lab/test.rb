@@ -309,25 +309,35 @@ end
 # puts list[0]
 
 # file = File.open("file.txt")
-#file.each do |line|
-#    puts line
-#end
-#file.close
+# file.each do |line|
+#     puts line
+# end
+# file.close
 
-#num = 2
-#10.times do
-#    print num, "\n"
-#    num *= num
-#end
+# num = 2
+# 10.times do
+#     print num, "\n"
+#     num *= num
+# end
 
-i = 8
-7.times do
-    print i.class, " ", i, "\n"
-    i *= i
-end
+# i = 8
+# 7.times do
+#     print i.class, " ", i, "\n"
+#     i *= i
+# end
 
+# 123456                    # Fixnum
+# 123_456                   # Fixnum (underscore ignored)
+# -543                      # Negative Fixnum
+# 123_456_789_123_345_789   # Bignum
+# 0xaabb                    # Hexadecimal
+# 0377                      # Octal
+# -0b101_010                # Binary (negated)
 
-
+# 3.times { print "hello " }
+# 5.upto(7) { |i| print "upto:", i, " " }
+# 5.downto(3) { |i| print "downto:", i, " " }
+# 50.step(80, 10) { |i| print i, " "}
 
 
 
