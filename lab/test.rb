@@ -339,8 +339,20 @@ end
 # 5.downto(3) { |i| print "downto:", i, " " }
 # 50.step(80, 10) { |i| print i, " "}
 
+# puts %q/this is a single-quoted string/
+# puts %Q!this is a double-quoted string!
 
+songs = SongList.new
 
+songFile = File.open("strings.txt")
+
+songFile.each do |line|
+  file, length, name, title = line.chomp.split(/\s*\|\s*/)
+#   name.squeeze!(" ")
+  songs.append Song.new(title, name, length)
+end
+songFile.close
+puts songs[1]
 
 
 
