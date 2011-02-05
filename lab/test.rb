@@ -348,14 +348,11 @@ songFile = File.open("strings.txt")
 
 songFile.each do |line|
   file, length, name, title = line.chomp.split(/\s*\|\s*/)
-#   name.squeeze!(" ")
+  # name.squeeze!(" ")
   songs.append Song.new(title, name, length)
 end
 songFile.close
-puts songs[1]
-
-
-
+puts songs[0]
 
 
 
