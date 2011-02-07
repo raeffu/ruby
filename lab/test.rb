@@ -264,12 +264,14 @@ end
 class SongList
   def initialize
     @songs = Array.new
+    @index = WordIndex.new
   end
   
   attr_reader :songs
   
   def append(aSong)
     @songs.push(aSong)
+    @index.index(aSong, aSong.name, aSong.artist)
     self
   end
   def deleteFirst
@@ -287,6 +289,9 @@ class SongList
     #       result = @songs.find { |aSong| key == aSong.name }
     #     end
     #     return result
+  end
+  def lookup(aWord)
+    @index.lookup(aWord)
   end
 end
 
@@ -342,17 +347,42 @@ end
 # puts %q/this is a single-quoted string/
 # puts %Q!this is a double-quoted string!
 
+class WordIndex
+  def initialize
+    @index = Hash.new(nil)
+  end
+  def index(anObject, *phrases)
+    phrases.each do |aPhrase|
+      aPhrase.scan /\w[-\w']+/ do |aWord|
+        aWord.downcase!
+        @index[aWord] = [] if @index[aWord].nil?
+        @index[aWord].push(anObject)
+      end
+    end
+  end
+  def lookup(aWord)
+    @index[aWord.downcase]
+  end
+end
+
 songs = SongList.new
 
 songFile = File.open("strings.txt")
 
 songFile.each do |line|
-  file, length, name, title = line.chomp.split(/\s*\|\s*/)
-  # name.squeeze!(" ")
-  songs.append Song.new(title, name, length)
+  file, length, name, title = line.chomp.split(/\s*\|\s*/) if line != nil
+  # puts file, length, name, title
+  name.squeeze!(" ")
+  mins, secs = length.split(/\d+/)
+  songs.append Song.new(title, name, mins.to_i*60+secs.to_i)
 end
+
 songFile.close
-puts songs[0]
+
+puts songs.lookup("Fats")
+puts songs.lookup("ain't")
+puts songs.lookup("RED")
+puts songs.lookup("WoRlD")
 
 
 
