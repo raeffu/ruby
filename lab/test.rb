@@ -365,26 +365,38 @@ class WordIndex
   end
 end
 
-songs = SongList.new
+# songs = SongList.new
+# 
+# songFile = File.open("strings.txt")
+# 
+# songFile.each do |line|
+#   file, length, name, title = line.chomp.split(/\s*\|\s*/) if line != nil
+#   # puts file, length, name, title
+#   name.squeeze!(" ")
+#   mins, secs = length.split(/\d+/)
+#   songs.append Song.new(title, name, mins.to_i*60+secs.to_i)
+# end
+# 
+# songFile.close
+# 
+# puts songs.lookup("Fats")
+# puts songs.lookup("ain't")
+# puts songs.lookup("RED")
+# puts songs.lookup("WoRlD")
 
-songFile = File.open("strings.txt")
+# =============================================================================
+# = Ranges                                                                    =
+# =============================================================================
 
-songFile.each do |line|
-  file, length, name, title = line.chomp.split(/\s*\|\s*/) if line != nil
-  # puts file, length, name, title
-  name.squeeze!(" ")
-  mins, secs = length.split(/\d+/)
-  songs.append Song.new(title, name, mins.to_i*60+secs.to_i)
-end
+# (1..10).each { |i| puts i  }
+# (1..10).to_a        #convert to array
+# ('bar'..'bat').each { |s| puts s }
 
-songFile.close
-
-puts songs.lookup("Fats")
-puts songs.lookup("ain't")
-puts songs.lookup("RED")
-puts songs.lookup("WoRlD")
-
-
+digits = 1..10
+# puts digits.include?(5)
+# puts digits.max
+# puts digits.min
+# puts digits.reject { |i| i<5 }
 
 
 
