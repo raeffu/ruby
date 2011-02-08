@@ -392,11 +392,60 @@ end
 # (1..10).to_a        #convert to array
 # ('bar'..'bat').each { |s| puts s }
 
-digits = 1..10
+# digits = 1..10
 # puts digits.include?(5)
 # puts digits.max
 # puts digits.min
 # puts digits.reject { |i| i<5 }
+
+
+class VU
+
+  include Comparable
+
+  attr :volume
+
+  def initialize(volume)  # 0..9
+    @volume = volume
+  end
+
+  def inspect
+    '#' * @volume
+  end
+  # Support for ranges
+  def <=>(other)
+    self.volume <=> other.volume
+  end
+ 
+  def succ
+    raise(IndexError, "Volume too big") if @volume >= 9
+    VU.new(@volume.succ)
+  end
+end
+
+# medium = VU.new(4)..VU.new(7)  
+# puts medium.to_a 
+
+#puts (1..10) === 5
+#puts (1..10) === 3.14159
+#puts (1..10) === 13
+#puts ('a'..'j') === 'c'
+
+
+# =============================================================================
+# = RegEx                                                                    =
+# =============================================================================
+
+
+
+
+
+
+
+
+
+
+
 
 
 
