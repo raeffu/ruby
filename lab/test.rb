@@ -444,24 +444,65 @@ end
 # puts a =~ /z/
 # puts (a =~ /ll/)
 # 
-# def showRE(a, reg)
-#   if a =~ reg
-#     "#{$`}<<#{$&}>>#{$'}"
-#   else
-#     "no match"
-#   end
-# end
+ def showRE(a, reg)
+   if a =~ reg
+     "#{$`}<<#{$&}>>#{$'}"
+   else
+     "no match"
+   end
+ end
 # 
 # puts showRE("This is a experiment", /e/)
+# puts showRE('kangaroo', /angar/)
+# puts showRE('yes | no', /\|/)
+# puts showRE('yes (no)', /\(no\)/)
+# puts showRE('It costs $12.', /[aeiou]/)
+# puts showRE('It costs $12.', /[\s]/)
+# a = 'It costs $12.'
+# puts showRE(a, /c.s/)
+# puts showRE(a, /\./)
 
+# puts "12:50am" =~ /(\d\d):(\d\d)(..)/
+# puts "Hour is #$1, minute #$2"
+# puts "12:50am" =~ /((\d\d):(\d\d))(..)/
+# puts "Time is #$1"
+# puts "Hour is #$2, minute #$3"
+# puts "AM/PM is #$4"
 
+# match duplicated letter
+# puts showRE('He said "Hello"', /(\w)\1/)
+# match duplicated substrings
+# puts showRE('Mississippi', /(\w+)\1/)
+# a = "the quick brown fox"
+# puts a.sub(/the/, "ou shit")
+# puts a.sub(/^./) { $&.upcase }
+# puts a.gsub(/[aeiou]/) { $&.upcase }
+# def mixedCase(word)
+#   word.gsub(/\b\w/) {$&.upcase}
+# end
+# puts mixedCase("louis armstrong")
 
+# puts "fred:smith".sub(/(\w+):(\w+)/, '\2, \1')
+# str = 'a\b\c'
+# puts str
+# puts str.gsub(/\\/, '\&\&')
 
+# re = /cat/
+# puts re.class
 
+# Match time
 
+# re = /(\d+):(\d+)/
 
+# md = re.match("Time: 13:37am")
+# puts md
+# puts md.class
 
-
+# puts md[0]              # == $&
+# puts md[1]              # == $1
+# puts md[2]              # == $2
+# puts md.pre_match+"<"   # == $`
+# puts md.post_match      # == $'
 
 
 
