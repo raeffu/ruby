@@ -507,11 +507,11 @@ end
 # =============================================================================
 
 # puts self.class
-def names(name1, *rest)
-    "#{name1}, #{rest.join(', ')} si schwul."
-end
-
-puts names('dini mueter', 'dr peter', 'ds vreni')
+# def names(name1, *rest)
+#     "#{name1}, #{rest.join(', ')} si schwul."
+# end
+# 
+# puts names('dini mueter', 'dr peter', 'ds vreni')
 
 
 
