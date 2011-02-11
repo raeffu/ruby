@@ -504,7 +504,7 @@ end
 # puts md.pre_match+"<"   # == $`
 # puts md.post_match      # == $'
 
-puts self.class
+# puts self.class
 
 
 
