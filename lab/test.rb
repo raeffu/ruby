@@ -487,8 +487,6 @@ end
 # puts str
 # puts str.gsub(/\\/, '\&\&')
 
-# re = /cat/
-# puts re.class
 
 # Match time
 
@@ -504,7 +502,16 @@ end
 # puts md.pre_match+"<"   # == $`
 # puts md.post_match      # == $'
 
+# =============================================================================
+# = Methods                                                                   =
+# =============================================================================
+
 # puts self.class
+def names(name1, *rest)
+    "#{name1}, #{rest.join(', ')} si schwul."
+end
+
+puts names('dini mueter', 'dr peter', 'ds vreni')
 
 
 
