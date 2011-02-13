@@ -555,8 +555,15 @@ end
 # = Expressions                                                    =
 # ==================================================================
 
+# a = b = c = 0
+# puts a
+# puts b
+# puts c
 
-
+# a = if 3 > 2
+#       "expression"
+#     end
+# puts a
 
 
 
