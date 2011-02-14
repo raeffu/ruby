@@ -119,6 +119,14 @@ class Song
     @@plays += 1
     "This song: #@plays plays. Total #@@plays plays."
   end
+  def [](fromTime, toTime)
+    result = Song.new(self.title + " [extract]",
+                      self.artist,
+                      toTime - fromTime)
+    result.setStartTime(fromTime)
+    result
+  end
+
 end
 #
 # class KaraokeSong < Song
@@ -565,16 +573,51 @@ end
 #     end
 # puts a
 
+# puts `date` # befehl direkt auf OS ausfuehren
+# puts %x{ls /} # das gleiche wie ``
 
+# a = b = 1 + 2 + 3
+# puts a
+# puts b
+# a = (b = 1 + 2) + 3
+# puts a
+# puts b
 
+# a = 1
+# b = 2
+# 
+# a, b = b, a
+# 
+# puts a, b
 
+# puts defined? 1
+# puts defined? dummy
+# puts defined? printf
+# puts defined? String
+# puts defined? $&
+# puts defined? $_
+# puts defined? Math::PI
+# puts defined? 42.abs
 
+# negated form of if
+# unless aSong.duration > 180 then
+#   cost = .25
+# else
+#   cost = .35
+# end
 
+# value = 100.00000001
+# result = value > 100 ? 'Ja' : 'Nein'
+# puts result
+# 
+# date = '14-02-2011'
+# mon, day, year = date.split('-') 
 
+# mon, day, year = $1, $2, $3 if /(\d\d)-(\d\d)-(\d\d)/
+# puts "a = #{a}" if fDebug
+# print total unless total == 0
 
-
-
-
+# puts mon, day, year
 
 
 
