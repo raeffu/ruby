@@ -619,14 +619,66 @@ end
 
 # puts mon, day, year
 
+# a = 'dini mueter'
 
+# case a
+#    when "dini"
+#    puts 'dini'
+#
+#    when /\w*/
+#    puts 'regex'
+#
+#    when "dini", "mueter"
+#    puts 'dini , mueter'
+#    
+#    else
+#    puts 'else'
+#end
+#
+#year = 1990
+#kind = case year
+#        when 1800..1900 then "very old"
+#        when 1900..2000 then "old"
+#       end
+#
+#puts kind
 
+#while gets
+  #  asdfasdfasdf
+#end
+#until i < 7
+    #   asfa 
+#end
 
+#a *= 2 while a < 100
+#a -= 10 until a < 100
 
+# file = File.open("ordinal")
+# while file.gets
+#   print  if /third/ .. /fifth/
+# end
 
+# file = File.open("ordinal")
+# while file.gets
+#   print if ($. == 1) || /eig/ .. ($. == 3) || /nin/
+#   puts $.
+# end
 
+# 3.times do
+#   print "Ho! "
+# end
 
+# 0.upto(9) do |x|
+#   print x, " "
+# end
 
+# 0.step(12, 3) {|x| print x, " "}
+
+# [1, 2, 3, 4, 5].each {|val| print val, " "}
+
+# File.open("ordinal").grep /d$/ do |line|
+#   print line
+# end
 
 
 
