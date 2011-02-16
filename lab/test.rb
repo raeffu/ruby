@@ -680,8 +680,48 @@ end
 #   print line
 # end
 
+# ========================================================
+# = Exceptions                                           =
+# ========================================================
+# 
+# begin
+#   asdf
+# rescue StandardError => e
+#   puts "ou shit: #{$!}"
+#   raise
+#   # raise
+# else
+#   puts 'else is gay'
+# ensure
+#   puts 'this is sure'
+# end
 
-
+# raise
+# raise "bad mp3 encoding"
+# raise InterfaceException, "Keyboard failure", caller
+# 
+# catch (:done)  do
+#   while gets
+#     throw :done unless fields = split(/\t/)
+#     songList.add(Song.new(*fields))
+#   end
+#   songList.play
+# end
+# 
+# def promptAndGet(prompt)
+#   print prompt
+#   res = readline.chomp
+#   throw :quitRequested if res == "!"
+#   return res
+# end
+# 
+# catch :quitRequested do
+#   name = promptAndGet("Name: ")
+#   age  = promptAndGet("Age:  ")
+#   sex  = promptAndGet("Sex:  ")
+#   # ..
+#   # process information
+# end
 
 
 
