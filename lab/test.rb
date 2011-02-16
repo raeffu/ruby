@@ -680,6 +680,21 @@ end
 #   print line
 # end
 
+# ========================================================
+# = Exceptions                                           =
+# ========================================================
+
+begin
+  asdf
+rescue StandardError => e
+  puts "ou shit: #{$!}"
+  raise
+  # raise
+else
+  puts 'else is gay'
+ensure
+  puts 'this is sure'
+end
 
 
 
