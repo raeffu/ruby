@@ -723,13 +723,25 @@ end
 #   # process information
 # end
 
+# ========================================================
+# = Modues                                               =
+# ========================================================
 
+$: << File.dirname(__FILE__)
 
+require "module1"
+require "module2"
 
+puts Test.shout("deine")
+puts Test2.shout("mudda")
 
+# Test.shout("ou")
+# Test2.shout("yeah")
 
-
-
+# Module variable
+Test.shout(Test::Text)
+# Module constant
+Test2.shout(Test2::TEXT)
 
 
 
