@@ -99,6 +99,12 @@ class Song
     @duration = duration
     @plays    = 0
   end
+  
+  include Comparable
+  def <=>(other)
+    self.duration <=> other.duration
+  end
+  
   def to_s
     "Song: #{@name}, Artist: #{@artist}, Duration: #{@duration}"
   end
@@ -727,24 +733,47 @@ end
 # = Modues                                               =
 # ========================================================
 
-$: << File.dirname(__FILE__)
+# $: << File.dirname(__FILE__)
 
-require "module1"
-require "module2"
+# require "module1"
+# require "module2"
 
-puts Test.shout("deine")
-puts Test2.shout("mudda")
+# puts Test.shout("deine")
+# puts Test2.shout("mudda")
 
 # Test.shout("ou")
 # Test2.shout("yeah")
 
 # Module variable
-Test.shout(Test::Text)
+# puts Test.shout(Test::Text)
 # Module constant
-Test2.shout(Test2::TEXT)
+# puts Test2.shout(Test2::TEXT)
 
+module Debug
+  def whoAmI?
+    "#{self.class.name} (\##{self.object_id}): #{self.to_s}"
+  end
+end
 
+class Phonograph
+  include Debug
+end
 
+class EightTrack
+  include Debug
+end
+
+ph = Phonograph.new("West End Blues")
+et = EightTrack.new("Surrealistic Pillow")
+
+puts ph.whoAmI?
+puts et.whoAmI?
+
+song1 = Song.new("My Way",  "Sinatra", 225)
+song2 = Song.new("Bicylops", "Fleck",  260)
+
+puts song1 < song2
+puts song1 <=> song2
 
 
 
