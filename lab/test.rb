@@ -777,6 +777,45 @@ end
 
 # include Enumerable for nice functions like map, sort....
 
+# print "Enter your name: "
+# name = gets #if /[a-zA-Z\s]*/
+# 
+# print "Your name is #{name}"
+
+# file = File.new("objectfile", "r")
+# 
+# file.each do |line|
+#   puts line
+# end
+# 
+# file.close
+
+File.open("objectfile", "r") do |file|
+  file.each do |line|
+    puts line
+  end
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
