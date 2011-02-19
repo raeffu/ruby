@@ -730,7 +730,7 @@ end
 # end
 
 # ========================================================
-# = Modues                                               =
+# = Modules                                              =
 # ========================================================
 
 # $: << File.dirname(__FILE__)
@@ -748,33 +748,34 @@ end
 # puts Test.shout(Test::Text)
 # Module constant
 # puts Test2.shout(Test2::TEXT)
+# 
+# module Debug
+#   def whoAmI?
+#     "#{self.class.name} (\##{self.object_id}): #{self.to_s}"
+#   end
+# end
+# 
+# class Phonograph
+#   include Debug
+# end
+# 
+# class EightTrack
+#   include Debug
+# end
+# 
+# ph = Phonograph.new("West End Blues")
+# et = EightTrack.new("Surrealistic Pillow")
+# 
+# puts ph.whoAmI?
+# puts et.whoAmI?
+# 
+# song1 = Song.new("My Way",  "Sinatra", 225)
+# song2 = Song.new("Bicylops", "Fleck",  260)
+# 
+# puts song1 < song2
+# puts song1 <=> song2
 
-module Debug
-  def whoAmI?
-    "#{self.class.name} (\##{self.object_id}): #{self.to_s}"
-  end
-end
-
-class Phonograph
-  include Debug
-end
-
-class EightTrack
-  include Debug
-end
-
-ph = Phonograph.new("West End Blues")
-et = EightTrack.new("Surrealistic Pillow")
-
-puts ph.whoAmI?
-puts et.whoAmI?
-
-song1 = Song.new("My Way",  "Sinatra", 225)
-song2 = Song.new("Bicylops", "Fleck",  260)
-
-puts song1 < song2
-puts song1 <=> song2
-
+# include Enumerable for nice functions like map, sort....
 
 
 
