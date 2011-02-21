@@ -782,7 +782,7 @@ end
 # 
 # print "Your name is #{name}"
 
-# file = File.new("objectfile", "r")
+# file = File.new("file.txt", "r")
 # 
 # file.each do |line|
 #   puts line
@@ -790,14 +790,30 @@ end
 # 
 # file.close
 
-File.open("objectfile", "r") do |file|
-  file.each do |line|
-    puts line
-  end
+# File.open("file.txt", "r") do |file|
+#   file.each do |line|
+#     puts line
+#   end
+# end
+
+# File.open("file.txt", "r") do |file|
+#   file.each_line {|line| puts "Got #{line.dump}"}
+# end
+
+# IO.foreach("file.txt") {|line| puts line}
+
+# array = IO.readlines("file.txt")
+# puts array
+# puts array[0]
+
+require 'net/http'
+
+
+h = Net::HTTP.new('www.pragmaticprogrammer.com', 80)
+resp, data = h.get('/index.html', nil)
+if resp.message == "OK"
+  data.scan(/<img src="(.*?)"/) { |x| puts x }
 end
-
-
-
 
 
 
